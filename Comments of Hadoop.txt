@@ -1,0 +1,11 @@
+$ hdfs dfs -mkdir /input
+$ hdfs dfs -put ./input/* /input
+$ cd src/main/java
+$ hadoop com.sun.tools.javac.Main *.java
+$ jar cf recommender.jar *.class
+$ hadoop jar recommender.jar Driver /input /output/userRating
+$ hadoop jar recommender.jar Driver /input /output/cooccurrenceGenerator
+$ hadoop jar recommender.jar Driver /input /output/cooccurrenceNormal
+$ hadoop jar recommender.jar Driver /input /output/userAverageRating
+$ hadoop jar recommender.jar Driver /input /output/cellMultiplication
+$ hadoop jar recommender.jar Driver /input /output/cellSum
